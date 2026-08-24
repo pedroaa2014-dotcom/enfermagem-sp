@@ -1,0 +1,4 @@
+import { Check,Sparkles } from 'lucide-react'; import { Benefit,UNKNOWN } from '@/data/universities';
+export function BenefitsSection({benefits}:{benefits:Benefit[]}){return <section className="detail-section"><SectionTitle icon={Sparkles} title="Principais benefícios"/><div className="benefit-grid">{benefits.length?benefits.map(b=><article className="benefit-card" key={b.title}><Check size={18}/><div><strong>{b.title}</strong><p>{b.description}</p></div></article>):<PendingBlock/>}</div></section>}
+export function PendingBlock({text=UNKNOWN}:{text?:string}){return <div className="pending-block"><span>!</span><p><strong>{text}</strong><small>Esta informação ainda não foi confirmada em fonte oficial.</small></p></div>}
+export function SectionTitle({icon:Icon,title,aside}:{icon:React.ElementType;title:string;aside?:string}){return <div className="detail-title"><span><Icon size={18}/></span><h3>{title}</h3>{aside&&<small>{aside}</small>}</div>}
